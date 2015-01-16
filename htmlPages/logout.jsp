@@ -5,10 +5,10 @@
 </head>
 
 <body>
-<p> Welcome Guest! </p>
+<p> You are logged out. </p>
 <ul class="navbar"> 
-  <a href="town.html">Login as Customer</a>
-  <a href="links.html">Login as Employee</a>
+  <a href="login.jsp">Login as Customer</a>
+  <a href="employee-login.jsp">Login as Employee</a>
 </ul>
 <table>
 	<tr>

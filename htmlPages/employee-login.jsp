@@ -5,10 +5,10 @@
 </head>
 
 <body>
-<p> You are logged out. </p>
+<p> Welcome Guest! </p>
 <ul class="navbar"> 
-  <a href="town.html">Login as Customer</a>
-  <a href="links.html">Login as Employee</a>
+  <a href="login.jsp">Login as Customer</a>
+  <a href="employee-login.jsp">Login as Employee</a>
 </ul>
 <table>
 	<tr>
@@ -20,7 +20,7 @@
 		<td> <input name = “password” type=“text”></td>
 	</tr>
 	<tr>
-		<td> <button name = “login” type=“button”>Login</button></td>
+		<td> <button name = “login” type=“button”><a href="employee-toptemplate.jsp">Login</a></button></td>
 	</tr>
 </table>
 </body>
