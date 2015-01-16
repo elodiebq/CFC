@@ -17,16 +17,28 @@
 
 <p>
 <form method="post" action="addurl.do" enctype="multipart/form-data">
-	<table>
+	<table border="1">
 		<tr>
-			<td align="center">Name</td>
-			<td align="center">Address</td>
+		    <td align="center">Email</td>
+		    <td align="center">First Name</td>
+			<td align="center">Last Name</td>
+			<td align="center">Address Line1</td>
+			<td align="center">Address Line2</td>
+			<td align="center">City</td>
+			<td align="center">State</td>
+			<td align="center">Zip Code</td>
 			<td align="center">Last trading date</td>
 			<td align="center">cash balance</td>
 		</tr>
 		<tr>
-			<td align="center">David</td>
-			<td align="center">5939 Fifth Ave, Pittsburgh, PA</td>
+		    <td align="center">david@gmail.com</td>
+		    <td align="center">David</td>
+			<td align="center">Dai</td>
+			<td align="center">5939 Fifth Ave</td>
+			<td align="center">Apt 20</td>
+			<td align="center">Pittsburgh</td>
+			<td align="center">PA</td>
+			<td align="center">15232</td>
 			<td align="center">Jan, 15, 2015</td>
 			<td align="center">$ 347.59</td>
 		</tr>
@@ -36,24 +48,16 @@
 <hr />
 
 <p>
-	<c:set var="list" value="${shareList}" />
-<table>
+
+<table border="1">
 	<tr>
 		<td style="font-size: x-large">Share Name</td>
 		<td style="font-size: x-large">Share amount</td>
 		<td style="font-size: x-large">Last trading price</td>
 		<td style="font-size: x-large">Total value</td>
 	</tr>
-	<c:forEach var="share" items="${shareList}">
-		<tr>
-			<td style="font-size: x-large">${share}</td>
-			<td style="font-size: x-large">${amount}</td>
-			<td style="font-size: x-large">${lastprice}</td>
-			<td style="font-size: x-large">${value}</td>
-		</tr>
-	</c:forEach>
+	
 
 </table>
 </p>
-
 <jsp:include page="employee-bottomtemplate.jsp" />

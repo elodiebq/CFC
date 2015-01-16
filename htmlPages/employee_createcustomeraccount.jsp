@@ -17,16 +17,36 @@
 			<td><input type="text" name="comment" /></td>
 		</tr>
 		<tr>
-			<td>Name:</td>
+			<td>First Name:</td>
 			<td><input type="text" name="url" /></td>
 		</tr>
 		<tr>
-			<td>Address:</td>
+			<td>Last Name:</td>
+			<td><input type="text" name="url" /></td>
+		</tr>
+		<tr>
+			<td>Address Line1:</td>
+			<td><input type="text" name="comment" /></td>
+		</tr>
+		<tr>
+			<td>Address Line2:</td>
+			<td><input type="text" name="comment" /></td>
+		</tr>
+		<tr>
+			<td>City:</td>
+			<td><input type="text" name="comment" /></td>
+		</tr>
+		<tr>
+			<td>State:</td>
+			<td><input type="text" name="comment" /></td>
+		</tr>
+		<tr>
+			<td>Zip Code:</td>
 			<td><input type="text" name="comment" /></td>
 		</tr>
 		<tr>
 			<td>Cash Balance:</td>
-			<td><input type="text" name="comment" value="0"/></td>
+			<td><input type="text" name="comment" value="0" /></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><input type="submit"
@@ -35,5 +55,6 @@
 	</table>
 </form>
 </p>
+
 
  <jsp:include page="employee-bottomtemplate.jsp" />

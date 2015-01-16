@@ -1,8 +1,8 @@
-<jsp:include page="template-top.jsp" />
+<jsp:include page="customer-toptemplate.jsp" />
 
 <p style="font-size: medium">Enter your new password</p>
 
-<jsp:include page="error-list.jsp" />
+
 
 <p>
 <form method="POST" action="change-pwd.do">
@@ -23,4 +23,4 @@
 </form>
 </p>
 
-<jsp:include page="template-bottom.jsp" />
+<jsp:include page="customer-bottomtemplate.jsp" />

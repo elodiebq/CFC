@@ -1,5 +1,17 @@
 <jsp:include page="employee-toptemplate.jsp" />
-<p> Welcome Guest! </p>
+<p> Welcome John! </p>
+<hr>
+    <p>
+     View Customer Transaction History:
+    </p>
+      <li><a href=""><b>Barack</b> <b>Obama</b></a></li>
+      <li><a href="">Hillary Clinton</a></li>
+      <li><a href="">Bill Gates</a></li>
+      <li><a href="">Warren Buffett</a></li>
+    </ol>
+    <hr>
+
+
 <form>
    <table border="1">
      <caption>
@@ -71,6 +83,7 @@
 </div>
 
 </form>
+
  <jsp:include page="employee-bottomtemplate.jsp" />
 
 

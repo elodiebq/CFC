@@ -3,6 +3,10 @@
 
 <table>
 	<tr>
+		<td> Customer Email:</td>
+		<td> <input name = “customerEmail” type=“text”></td>
+	</tr>
+		<tr>
 		<td> Customer Name:</td>
 		<td> <input name = “customerName” type=“text”></td>
 	</tr>

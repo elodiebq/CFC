@@ -48,6 +48,8 @@
 							<span class="menu-item"><a href="customer_viewaccount.jsp">Manage
 									Your Account</a></span>
 							<br />
+							<span class="menu-item"><a href="customer_changepassword.jsp">Change Password</a></span>
+							<br />
 							<span class="menu-item"><a href="customer-buyfund.jsp">Buy Funds</a></span>
 							<br />
 							<span class="menu-item"><a href="Customer_Sell Fund.jsp">Sell Funds</a></span>
