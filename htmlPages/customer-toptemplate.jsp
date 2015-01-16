@@ -45,7 +45,7 @@
 				<p align="left">
 							<span class="menu-head">John Smith</span>
 							<br />
-							<span class="menu-item"><a href="customer_viewaccount.jsp">Manage
+							<span class="menu-item"><a href="customer_viewaccount.jsp">View
 									Your Account</a></span>
 							<br />
 							<span class="menu-item"><a href="customer_changepassword.jsp">Change Password</a></span>

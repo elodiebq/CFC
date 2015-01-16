@@ -20,7 +20,7 @@
 		<td> <input name = “password” type=“text”></td>
 	</tr>
 	<tr>
-		<td> <button name = “login” type=“button”><a href="customer-toptemplate.jsp">Login</a></button></td>
+		<td> <button name = “login” type=“button”><a href="customer_viewaccount.jsp">Login</a></button></td>
 	</tr>
 </table>
 </body>

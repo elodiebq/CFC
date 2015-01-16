@@ -49,7 +49,9 @@
 							<br />
 							<span class="menu-item"><a href="employee_createemployeeaccount.jsp">Create Employee Account</a></span>
 							<br />
-							<span class="menu-item"><a href="employee_changepassword.jsp">Reset Customer Password</a></span>
+							<span class="menu-item"><a href="employee_changecustomerpassword.jsp">Reset Customer Password</a></span>
+							<br />
+							<span class="menu-item"><a href="employee_changepassword.jsp">Reset Employee Password</a></span>
 							<br />
 							<span class="menu-item"><a href="employee_viewaccount.jsp">View Customer Account</a></span>
 							<br />
