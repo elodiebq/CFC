@@ -1,14 +1,17 @@
 <jsp:include page="employee-toptemplate.jsp" />
 <p> Welcome John! </p>
 <hr>
-    <p>
-     View Customer Transaction History:
-    </p>
-      <li><a href=""><b>Barack</b> <b>Obama</b></a></li>
-      <li><a href="">Hillary Clinton</a></li>
-      <li><a href="">Bill Gates</a></li>
-      <li><a href="">Warren Buffett</a></li>
-    </ol>
+    <p style="font-size: medium">select a customer</p>
+
+<select name="customerlist" size="1" class="arrow" tabindex="11">
+	<c:forEach var="customer" items="${customerList}">
+		<option value="customerid"><span class="menu-item"> <a
+				href="list.do?userid=${customer.customerid}">${customer.firstName}
+					${customer.lastName}</a>
+			</span>
+		</option>
+	</c:forEach>
+</select>
     <hr>
 
 

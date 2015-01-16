@@ -1,6 +1,5 @@
-<jsp:include page="customer-toptemplate.jsp" />
-<title> Customer - Fund List</title>
-<meta charset="utf-8">
+
+
 <h3>Fund List</h3>
 
 <p>
@@ -19,7 +18,7 @@
                 <tbody>
                 <tr>
                     <td>1.</td>
-                    <td width="30%"><a href="">iShares MSCI India Small Cap Index Fund</a></td>
+                    <td width="30%"><a href="http://www.vaneck.com/funds/SCIF.aspx">iShares MSCI India Small Cap Index Fund</a></td>
                     <td>SMIN</td>
                     <td>$ 35.55</td>
                     
@@ -72,4 +71,4 @@
 	</tr>
 </table>
 </body>
-                <jsp:include page="customer-bottomtemplate.jsp" />
+                

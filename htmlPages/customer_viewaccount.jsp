@@ -1,6 +1,6 @@
 <jsp:include page="customer-toptemplate.jsp" />
 
-<p style="font-size: medium">Welcome David!</p>
+<p style="font-size: medium">Welcome John!</p>
 
 
 <p>

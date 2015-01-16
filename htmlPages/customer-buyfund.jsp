@@ -1,20 +1,20 @@
 <jsp:include page="customer-toptemplate.jsp" />
 	<form method="POST" action="change-pwd.do">
-				
+			<a href="customer_Fundlist.jsp" target="_blank">See all Funds</a>	
 		<table>
 			<tr>
 				<td> Fund Name </td>
-				<td>Vanguard Star Fund Investor Shares</td>
+				<td><input type="text" name="fundName" value=""/></td>
 			</tr>
 			
 			<tr>
-				<td> Fund Name </td>
-				<td>(MUTF:VGSTX)</td>
+				<td> Fund Ticker </td>
+				<td><input type="text" name="ticker" value=""/></td>
 			</tr>
 			
 			<tr>
 				<td> Price</td>
-				<td>24.46</td>
+				<td>$24.46</td>
 			</tr>
 		
 	

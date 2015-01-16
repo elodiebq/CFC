@@ -1,5 +1,5 @@
 <jsp:include page="customer-toptemplate.jsp" />
-<p> Welcome Guest! </p>
+<p> Welcome John! </p>
 <form>
    <table border="1">
      <caption>

@@ -5,14 +5,14 @@
 </head>
 
 <body>
-<p> Welcome Guest! </p>
+<p> Welcome Guest!</p>
 <ul class="navbar"> 
-  <a href="login.jsp">Login as Customer</a>
+  <a href="login.jsp">Login as Customer</a><br>
   <a href="employee-login.jsp">Login as Employee</a>
 </ul>
-Search Funds Here<input type=“text”> <button type=“button”>Submit</button>
-<div>
-<img src=“1.jpg”>
-</div>
+<section>
+Search Funds Here<input type=“text”> <button type=“button”>Submit</button><br>
+<a href="Fundlist.jsp">See all Funds</a>
+</section>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 <jsp:include page="employee-toptemplate.jsp" />
 
-<p style="font-size: medium">select a customer</p>
+<p style="font-size: medium">Select a customer</p>
 
 <select name="customerlist" size="1" class="arrow" tabindex="11">
 	<c:forEach var="customer" items="${customerList}">
@@ -12,7 +12,9 @@
 			</span>
 		</option>
 	</c:forEach>
-</select>
+</select><br>
+<p> Or type a customer email here:
+<input type="text"><button>Submit</button></input>
 
 
 <p>
@@ -55,6 +57,12 @@
 		<td style="font-size: x-large">Share amount</td>
 		<td style="font-size: x-large">Last trading price</td>
 		<td style="font-size: x-large">Total value</td>
+	</tr>
+	<tr>
+		<td ><a href="">Apple</a></td>
+		<td >100</td>
+		<td >$23.56</td>
+		<td >$2356</td>
 	</tr>
 	
 
