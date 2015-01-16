@@ -1,4 +1,4 @@
-
+<jsp:include page="customer-toptemplate.jsp" />
 	<form method="POST" action="change-pwd.do">
 				
 		<table>
@@ -30,3 +30,5 @@
 		
 		
 	</form>
+
+<jsp:include page="customer-bottomtemplate.jsp" />

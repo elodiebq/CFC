@@ -45,23 +45,23 @@
 				<p align="left">
 							<span class="menu-head">John Smith</span>
 							<br />
-							<span class="menu-item"><a href="manage.do">Create Customer Account</a></span>
+							<span class="menu-item"><a href="employee_createcustomeraccount.jsp">Create Customer Account</a></span>
 							<br />
-							<span class="menu-item"><a href="change-pwd.do">Create Employee Account</a></span>
+							<span class="menu-item"><a href="employee_createemployeeaccount.jsp">Create Employee Account</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Reset Customer Password</a></span>
+							<span class="menu-item"><a href="employee_changepassword.jsp">Reset Customer Password</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">View Customer Account</a></span>
+							<span class="menu-item"><a href="employee_viewaccount.jsp">View Customer Account</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">View Customer Transaction History</a></span>
+							<span class="menu-item"><a href="employee_viewTransactionHistory.jsp">View Customer Transaction History</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Deposit Check</a></span>
+							<span class="menu-item"><a href="employee_depositCheck.jsp">Deposit Check</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Create Fund</a></span>
+							<span class="menu-item"><a href="employee_createfund.jsp">Create Fund</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Transition Day</a></span>
+							<span class="menu-item"><a href="employee-transactionDay.jsp">Transition Day</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Log out</a></span>
+							<span class="menu-item"><a href="logout.jsp">Log out</a></span>
 							<br />
 							<span class="menu-item">&nbsp;</span>
 							<br />

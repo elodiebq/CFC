@@ -45,20 +45,20 @@
 				<p align="left">
 							<span class="menu-head">John Smith</span>
 							<br />
-							<span class="menu-item"><a href="manage.do">Manage
+							<span class="menu-item"><a href="customer_viewaccount.jsp">Manage
 									Your Account</a></span>
 							<br />
-							<span class="menu-item"><a href="change-pwd.do">Buy Funds</a></span>
+							<span class="menu-item"><a href="customer-buyfund.jsp">Buy Funds</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Sell Funds</a></span>
+							<span class="menu-item"><a href="Customer_Sell Fund.jsp">Sell Funds</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Request Check</a></span>
+							<span class="menu-item"><a href="customer_requestCheck.jsp">Request Check</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Funds Research</a></span>
+							<span class="menu-item"><a href="customer_searchfund.jsp">Funds Research</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Transaction History</a></span>
+							<span class="menu-item"><a href="customer_viewTransactionHistory.jsp">Transaction History</a></span>
 							<br />
-							<span class="menu-item"><a href="logout.do">Log out</a></span>
+							<span class="menu-item"><a href="logout.jsp">Log out</a></span>
 							<br />
 							<span class="menu-item">&nbsp;</span>
 							<br />

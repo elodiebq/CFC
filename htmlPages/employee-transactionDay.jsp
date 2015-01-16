@@ -1,3 +1,4 @@
+<jsp:include page="employee-toptemplate.jsp" />
 <form method="POST" >
 				
 		<table>
@@ -33,3 +34,5 @@
 		
 		
 	</form>
+	
+	<jsp:include page="employee-bottomtemplate.jsp" />
