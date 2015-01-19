@@ -1,3 +1,8 @@
+/*
+Jike Li
+Date: Jan. 19, 2015
+ */
+
 package controller;
 
 import java.text.DecimalFormat;
@@ -17,7 +22,6 @@ import model.FundDAO;
 import model.Model;
 import model.PositionDAO;
 import model.PriceDAO;
-import model.TransactionDAO;
 
 public class ViewAccountAction extends Action {
 
@@ -30,7 +34,6 @@ public class ViewAccountAction extends Action {
 		customerDAO = model.getCustomerDAO();
 		fundDAO = model.geFundDAO();
 		priceDAO = model.getPriceDAO();
-		transactionDAO = model.getTransactionDAO();
 		positionDAO = model.getPositionDAO();
 	}
 
