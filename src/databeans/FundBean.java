@@ -8,12 +8,12 @@ public class FundBean {
 		private String fundName;
 		private String symbol;
 
-		public int    getFundID()   	{ return fundId;}
-		public String getFirstName()    { return fundName; }
-		public String getLastName()     { return symbol;  }
+		public int    getFundId()   { return fundId;   }
+		public String getFundName() { return fundName; }
+		public String getSymbol()   { return symbol;   }
 
-		public void setCustomerId(int i) 	  {	fundId   = i; }
-		public void setEmail(String s) 		  {	fundName = s; }
-	    public void setFirstName(String s) 	  {	symbol   = s; }
+		public void setFundId(int i) 	  {	fundId   = i; }
+		public void setFundName(String s) {	fundName = s; }
+	    public void setSymbol(String s)   {	symbol   = s; }
 	}
 

@@ -1,6 +1,6 @@
 package formbeans;
 
-public class TransactionRecordForm {
+public class TransactionRecordBean {
 	
 	private String fundName;
 	private String share;
