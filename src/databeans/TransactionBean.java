@@ -7,7 +7,7 @@ public class TransactionBean {
 		private int fundId;
 		private int customerId;
 		private int share;
-		private double amout;
+		private long amout;
 		private int date;
 		private boolean type;
 
@@ -15,7 +15,7 @@ public class TransactionBean {
 		public int     getFundId()   	  { return fundId;        }
 		public int     getCustomerId()    { return customerId;    }
 		public int     getShare()   	  { return share;		  }
-		public double  getAmount()        { return amout;		  }
+		public long  getAmount()          { return amout;		  }
 		public int     getDate()          { return date;          }
 		public boolean isBuy()            { return type;          }
 
@@ -23,7 +23,7 @@ public class TransactionBean {
 		public void setFundId(int i)	      {	fundId        = i; }
 		public void setCustomerId(int i) 	  {	customerId    = i; }
 		public void setShare(int i) 	      {	share         = i; }
-		public void setAmount(double d)		  { amout         = d; }
+		public void setAmount(long l)		  { amout         = l; }
 		public void setDate(int i) 		  	  {	date          = i; }
 	    public void setType(boolean b) 	      {	type          = b; }
 }
