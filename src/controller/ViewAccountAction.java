@@ -1,5 +1,6 @@
 package controller;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.genericdao.RollbackException;
 
 import databeans.CustomerBean;
+import databeans.FundBean;
 import databeans.PositionBean;
 import formbeans.TransactionRecordBean;
 import model.CustomerDAO;
@@ -63,8 +65,24 @@ public class ViewAccountAction extends Action {
 		
 		for (int i = 0 ; i < records.length; i++) {
 			int fundId = positions[i].getFundId();
-			records[i].setFundName(fundDAO.read(fundId).);
-			records[i].setShare();
+			FundBean fund = null;
+			try {
+				fund = fundDAO.read(fundId);
+			} catch (RollbackException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			records[i].setFundName(fund.getFundName());
+			records[i].setSymbol(fund.getSymbol());
+			
+			double share = positions[i].getShare() / 1000;
+			DecimalFormat df = new DecimalFormat("0.000");
+			String formattedShare = df.format(share);
+			records[i].setShare(formattedShare);
+			
+			records[i].setLastPrice(priceDAO.);
+
 		}
 		
 		

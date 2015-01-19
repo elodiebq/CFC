@@ -3,7 +3,7 @@ package databeans;
 import java.sql.Date;
 import org.genericdao.PrimaryKey;
 
-@PrimaryKey("fundId")
+@PrimaryKey("fundId, date")
 public class PriceBean {
 
 	private int  fundId;
