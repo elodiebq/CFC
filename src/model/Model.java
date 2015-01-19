@@ -21,7 +21,11 @@ public class Model {
 			
 			ConnectionPool pool = new ConnectionPool(jdbcDriver, jdbcURL);
 			customerDAO  = new CustomerDAO("customer", pool);
-			fundDAO 	 = 		new FundDAO();
+			fundDAO 	 = new FundDAO("fund", pool);
+			positionDAO  = new PositionDAO("position", pool);
+			priceDAO     = new PriceDAO("priceDAO", pool);
+			transactionDAO  = new TransactionDAO("transaction", pool);
+			
 		} catch (DAOException e) {
 			throw new ServletException(e);
 		}
