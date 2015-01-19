@@ -20,7 +20,8 @@ public class Model {
 			String jdbcURL    = config.getInitParameter("jdbcURL");
 			
 			ConnectionPool pool = new ConnectionPool(jdbcDriver, jdbcURL);
-			customerDAO  = new CustomerDAO("user", pool);
+			customerDAO  = new CustomerDAO("customer", pool);
+			fundDAO 	 = 		new FundDAO();
 		} catch (DAOException e) {
 			throw new ServletException(e);
 		}
