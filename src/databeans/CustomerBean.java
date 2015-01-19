@@ -24,8 +24,6 @@ public class CustomerBean {
 	private String  hashedPassword = "*";
 	private int     salt           = 0;
 	
-	
-	
 	public int    getCustomerId()   { return customerId;}
 	public String getFirstName()    { return firstName; }
 	public String getLastName()     { return lastName;  }

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.genericdao.ConnectionPool;
 import org.genericdao.DAOException;
 import org.genericdao.GenericDAO;
+import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 import org.genericdao.Transaction;
 
@@ -18,6 +19,11 @@ public class PositionDAO extends GenericDAO<PositionBean> {
 	public PositionBean[] getPositions() throws RollbackException {
 		PositionBean[] positions = match();
 		Arrays.sort(positions);  // We want them sorted by last and first names (as per Customer.compareTo());
+		return positions;
+	}
+	
+	public PositionBean[] getPositionByCustomer(int customerId) throws RollbackException {
+		PositionBean[] positions = match(MatchArg.equals("customerId", customerId));
 		return positions;
 	}
 	

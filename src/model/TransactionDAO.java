@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.genericdao.ConnectionPool;
 import org.genericdao.DAOException;
 import org.genericdao.GenericDAO;
+import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 import org.genericdao.Transaction;
 
@@ -17,6 +18,12 @@ public class TransactionDAO extends GenericDAO<TransactionBean> {
 	
 	public TransactionBean[] getTransactions() throws RollbackException {
 		TransactionBean[] transactions = match();
+		Arrays.sort(transactions); 
+		return transactions;
+	}
+	
+	public TransactionBean[] getTransactionsByCustomer(int customerId) throws RollbackException {
+		TransactionBean[] transactions = match(MatchArg.equals("customerId", customerId));
 		Arrays.sort(transactions); 
 		return transactions;
 	}

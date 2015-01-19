@@ -7,7 +7,12 @@ import org.genericdao.ConnectionPool;
 import org.genericdao.DAOException;
 
 public class Model {
-	private CustomerDAO customerDAO;
+	private CustomerDAO 	customerDAO;
+	private FundDAO     	fundDAO;
+	private PositionDAO 	positionDAO;
+	private PriceDAO    	priceDAO;
+	private TransactionDAO  transactionDAO; 
+	
 
 	public Model(ServletConfig config) throws ServletException {
 		try {
@@ -21,5 +26,9 @@ public class Model {
 		}
 	}
 	
-	public CustomerDAO  getCustomerDAO()  { return customerDAO;  }
+	public CustomerDAO    getCustomerDAO()    { return customerDAO;    }
+	public FundDAO        geFundDAO()  		  { return fundDAO;  	   }
+	public PositionDAO    getPositionDAO()    { return positionDAO;    }
+	public PriceDAO  	  getPriceDAO()  	  { return priceDAO;       }
+	public TransactionDAO getTransactionDAO() { return transactionDAO; }
 }
