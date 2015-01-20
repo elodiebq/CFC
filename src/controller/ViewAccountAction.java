@@ -16,7 +16,7 @@ import org.genericdao.RollbackException;
 import databeans.CustomerBean;
 import databeans.FundBean;
 import databeans.PositionBean;
-import formbeans.TransactionRecordBean;
+import formbeans.PositionRecordBean;
 import model.CustomerDAO;
 import model.FundDAO;
 import model.Model;
@@ -73,7 +73,7 @@ public class ViewAccountAction extends Action {
 			e1.printStackTrace();
 		}
 
-		TransactionRecordBean[] records = new TransactionRecordBean[positions.length];
+		PositionRecordBean[] records = new PositionRecordBean[positions.length];
 
 		for (int i = 0; i < records.length; i++) {
 			int fundId = positions[i].getFundId();
@@ -109,5 +109,4 @@ public class ViewAccountAction extends Action {
 
 		return "viewAccount.jsp";
 	}
-
 }
