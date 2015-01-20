@@ -13,6 +13,8 @@
                     <td width="30%">Fund Name</td>
                     <td>Ticker</td>
                     <td>Share Price</td>
+                    <td>Select</td>
+                    <td>Amount you want to buy</td>
                     
                 </tr>
             </thead>
@@ -22,6 +24,7 @@
                     <td width="30%"><a href="">iShares MSCI India Small Cap Index Fund</a></td>
                     <td>SMIN</td>
                     <td>$ 35.55</td>
+                    <td></td>
                     
                 </tr>
                     

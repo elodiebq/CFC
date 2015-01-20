@@ -1,34 +1,38 @@
 <jsp:include page="customer-toptemplate.jsp" />
-
+<div class="inner cover">
 <p style="font-size: medium">Welcome John!</p>
-
-
 <p>
 <form method="post" action="addurl.do" enctype="multipart/form-data">
-	<table border="1">
+	<table border="0">
 		<tr>
-		    <td align="center">Email</td>
-		    <td align="center">First Name</td>
-			<td align="center">Last Name</td>
-			<td align="center">Address Line1</td>
-			<td align="center">Address Line2</td>
-			<td align="center">City</td>
-			<td align="center">State</td>
-			<td align="center">Zip Code</td>
-			<td align="center">Last trading date</td>
-			<td align="center">cash balance</td>
+		    <td align="center"></td>
+		    <td align="center"></td>
+			<td align="center"></td>
+			
 		</tr>
 		<tr>
-		    <td align="center">david@gmail.com</td>
-		    <td align="center">David</td>
-			<td align="center">Dai</td>
-			<td align="center">5939 Fifth Ave</td>
-			<td align="center">Apt 20</td>
-			<td align="center">Pittsburgh</td>
-			<td align="center">PA</td>
-			<td align="center">15232</td>
-			<td align="center">Jan, 15, 2015</td>
-			<td align="center">$ 347.59</td>
+		    <td align="left">User ID</td>
+		    <td align="left">1234567</td>
+			<td align="right"></td>
+			
+		</tr>
+		<tr>
+		    <td align="left">Password</td>
+		    <td align="left">********</td>
+			<td align="right"><a href = "customer_changepassword.jsp">Edit</a></td>
+			
+		</tr>
+		<tr>
+		    <td align="left">Phone</td>
+		    <td align="left">412-4787766</td>
+			<td align="right"><a href = "">Edit</a></td>
+			
+		</tr>
+		<tr>
+		    <td align="left">Address</td>
+		    <td align="left">222 Melwood Ave, Apt 100, Pittsburgh, PA</td>
+			<td align="right"><a href = "">Edit</a></td>
+			
 		</tr>
 	</table>
 </form>
@@ -56,5 +60,6 @@
 
 </table>
 </p>
+</div>
 
 <jsp:include page="customer-bottomtemplate.jsp" />

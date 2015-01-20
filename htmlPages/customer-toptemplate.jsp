@@ -1,75 +1,57 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="img/icon.png">
 
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="pragma" content="no-cache">
-<title>CFS</title>
-<style>
-.menu-head {
-	font-size: 10pt;
-	font-weight: bold;
-	color: black;
-}
+<title>CFS Customer Login</title>
 
-.menu-item {
-	font-size: 10pt;
-	color: black
-}
-</style>
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/cover.css" rel="stylesheet">
+
+
+<script src="js/ie-emulation-modes-warning.js"></script>
+
+
 </head>
-
+<!-- NAVBAR
+================================================== -->
 <body>
+	<div class="site-wrapper">
 
-	<table cellpadding="4" cellspacing="0">
-		<tr>
-			<!-- Banner row across the top -->
-			<td width="130"><img border="0" height="75"> <img
-				border="0" height="75"></td>
-			<td>&nbsp;</td>
-			<td width="500" bgcolor="white">
-				<p align="center">
-					<font size="5">Carnegie Financial Services</font>
-				</p>
-			</td>
-		</tr>
+		<div class="site-wrapper-inner">
 
-		<!-- Spacer row -->
-		<tr>
-			<td style="font-size: 5px">&nbsp;</td>
-			<td colspan="2" style="font-size: 5px">&nbsp;</td>
-		</tr>
+			<div class="cover-container">
+				<div class="container">
 
-		<tr>
-			<td valign="top" height="500">
-				<!-- Navigation bar is one table cell down the left side -->
-				<p align="left">
-							<span class="menu-head">John Smith</span>
-							<br />
-							<span class="menu-item"><a href="customer_viewaccount.jsp">View
-									Your Account</a></span>
-							<br />
-							<span class="menu-item"><a href="customer_changepassword.jsp">Change Password</a></span>
-							<br />
-							<span class="menu-item"><a href="customer-buyfund.jsp">Buy Funds</a></span>
-							<br />
-							<span class="menu-item"><a href="Customer_Sell Fund.jsp">Sell Funds</a></span>
-							<br />
-							<span class="menu-item"><a href="customer_requestCheck.jsp">Request Check</a></span>
-							<br />
-							<span class="menu-item"><a href="customer_searchfund.jsp">Funds Research</a></span>
-							<br />
-							<span class="menu-item"><a href="customer_viewTransactionHistory.jsp">Transaction History</a></span>
-							<br />
-							<span class="menu-item"><a href="logout.jsp">Log out</a></span>
-							<br />
-							<span class="menu-item">&nbsp;</span>
-							<br />
+					<div class="masthead">
+						<h3 class="text-muted">Carnegie Financial Service</h3>
+						<nav>
+							<ul class="nav nav-justified">
+								<li class="active"><a href="customer_searchfund.jsp">Research
+										Funds</a></li>
+								<li><a href="customer-buyfund.jsp">Buy Funds</a></li>
+								<li><a href="Customer_Sell Fund.jsp">Sell Funds</a></li>
+								<li role="presentation" class="dropdown">
+    								<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+    								<ul class="dropdown-menu" role="menu">
+    									<li>123</li>
+    									<li>456</li>
+    								</ul>
+  </li>
+								<li><a href="">Contact Us</a></li>
+							</ul>
+						</nav>
+					</div>
 
 
-				</p>
-			</td>
 
-			<td>
-				<!-- Padding (blank space) between navbar and content -->
-			</td>
-			<td valign="top">
+				</div>
