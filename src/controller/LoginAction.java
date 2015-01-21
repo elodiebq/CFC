@@ -41,13 +41,13 @@ public class LoginAction extends Action {
 			// will be
 			// presented (we assume for the first time).
 			if (!form.isPresent()) {
-				return "login.jsp";
+				return "customer_login.jsp";
 			}
 
 			// Any validation errors?
 			errors.addAll(form.getValidationErrors());
 			if (errors.size() != 0) {
-				return "login.jsp";
+				return "customer_login.jsp";
 			}
 
 			// Look up the user
@@ -61,13 +61,13 @@ public class LoginAction extends Action {
 
 			if (customer == null) {
 				errors.add("Email address not found");
-				return "login.jsp";
+				return "customer_login.jsp";
 			}
 
 			// Check the password
 			if (!(customer.getPassword().equals(form.getPassword()))) {
 				errors.add("Incorrect password");
-				return "login.jsp";
+				return "customer_login.jsp";
 			}
 
 			// Attach (this copy of) the user bean to the session
