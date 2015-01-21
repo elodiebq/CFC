@@ -25,65 +25,60 @@
 
 <body>
 
-	<div class="site-wrapper">
+    <div class="site-wrapper">
 
-		<div class="site-wrapper-inner">
-
-
-
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4"></div>
-					<div class="col-md-4">
-						<form class="form-signin">
-							<h2 class="form-signin-heading">Please login</h2>
-							<label for="inputEmail" class="sr-only">Email address</label> <input
-								type="email" id="inputEmail" class="form-control"
-								placeholder="Email address" required="" autofocus=""> <label
-								for="inputPassword" class="sr-only">Password</label> <input
-								type="password" id="inputPassword" class="form-control"
-								placeholder="Password" required="">
-							<div class="checkbox">
-								<label> <input type="checkbox" value="remember-me">
-									Remember me
-								</label>
-							</div>
-							<button class="btn btn-lg btn btn-warning btn-block"
-								href="customer_viewaccount.jsp">
-								<a href="customer_viewaccount.jsp">Login</a>
-							</button>
-						</form>
+        <div class="site-wrapper-inner">
 
 
-						<div class="inner">
-							<p>
-								Copy right deserved to <a href="https://www.cmu.edu"
-									target="_blank">CMU</a>, by <a
-									href="https://www.facebook.com/biqiu.li" target="_blank">@Rachel</a>.
-							</p>
-						</div>
 
-					</div>
-					<div class="col-md-4"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <form class="form-signin" action="login.do" method="GET">
+                            <h2 class="form-signin-heading">Please login</h2>
+                            <input name="email" type="email" class="form-control" placeholder="Email address" required="" autofocus="">
+                            <input name= "password" type="password" class="form-control" placeholder="Password" required="">
+                            <input name= "action" type="hidden" value="Login">
+                            <p id="error_info">${errors}</p>
+                            <div class="checkbox">
+                                <label> <input type="checkbox" value="remember-me">
+                                    Remember me
+                                </label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                        </form>
 
-				</div>
 
-			</div>
+                        <div class="inner">
+                            <p>
+                                Copy right deserved to <a href="https://www.cmu.edu"
+                                    target="_blank">CMU</a>, by <a
+                                    href="https://www.facebook.com/biqiu.li" target="_blank">@Rachel</a>.
+                            </p>
+                        </div>
 
-		</div>
+                    </div>
+                    <div class="col-md-4"></div>
 
-	</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
-	<!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript
     ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="./Cover Template for Bootstrap_files/jquery.min.js"></script>
-	<script src="./Cover Template for Bootstrap_files/bootstrap.min.js"></script>
-	<script src="./Cover Template for Bootstrap_files/docs.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script
-		src="./Cover Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script
+        src="./Cover Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 </html>
