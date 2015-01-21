@@ -44,11 +44,6 @@ public class BuyFundAction extends Action {
 
 		try {
 			BuyFundForm form = formBeanFactory.create(request);
-			request.setAttribute("buyfundform", form);
-			
-			if (!form.isPresent()) {
-				return "buyfund.jsp";
-			}
 
 			// Any validation errors?
 			errors.addAll(form.getValidationErrors());
@@ -79,7 +74,7 @@ public class BuyFundAction extends Action {
 				if (fundbean == null) {
 					fundbean = fundDAO.readByName(symbol);
 					if (fundbean == null) {
-						// return err.add();
+						errors.add("No fund found! Please check input.");
 					}
 				}
 
@@ -87,6 +82,7 @@ public class BuyFundAction extends Action {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			if (amount <= customer.getCash()) {
 				Transaction.begin();
 				Long balance = customer.getCash() - amount;
@@ -106,7 +102,7 @@ public class BuyFundAction extends Action {
 				HttpSession session = request.getSession();
 				session.setAttribute("customer", customer);
 			} else {
-				// err.add("not enough money");
+				errors.add("Amount must less than cash balance");
 			}
 
 			return "buyfund.do";

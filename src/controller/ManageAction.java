@@ -46,7 +46,7 @@ public class ManageAction extends Action {
         
 		// Set up user list for nav bar
 		try {
-        	UserBean[] userList = userDAO.getAllUsers();
+        	CustomerBean[] customerList = CustomerDAO.getAllUsers();
 			request.setAttribute("userList",userList);
 		} catch (MyDAOException e) {
 			// TODO Auto-generated catch block

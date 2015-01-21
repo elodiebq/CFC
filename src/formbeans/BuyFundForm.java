@@ -34,7 +34,7 @@ public class BuyFundForm extends FormBean {
 			try {
 				double amountcheck = Double.parseDouble(amount.trim());
 			} catch (Exception e) {
-				errors.add("Amount must be a number");
+				errors.add("Amount should be a number");
 			}
 		}
 		return errors;

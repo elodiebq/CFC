@@ -1,39 +1,27 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <jsp:include page="customer-toptemplate.jsp" />
-<p> Welcome Guest! </p>
+<%@ page import="databeans.CustomerBean"%>
+<p>Welcome Guest!</p>
 <form>
-   <table border="1">
-     <caption>
-     Request Check for <b>Barack</b> <b>Obama</b>
-   </caption>
-   <thead>
-      <tr>
-              
-              <td>Total Deposit</td>
-              <td>Pending Transaction Value</td>
-              <td>Cash Balance</td>
-          
-            </tr>
-             </thead>
-      <tbody>
-            
-            <tr> 
-              <td>$2000.00</td>
-              <td>$200.00</td>
-              <td>$400.00</td>
-            </tr>
+	<table>
+		<tr>
+			<td>Cash Balance</td>
+			<td>
+			${cash}</td>
+		</tr>
+		<tr>
+			<td>Request Check Amount:</td>
+			<td><input name=requestAmount type=“text”></td>
+		</tr>
 
-   </tbody></table>
-    <hr>
-<table>
-  <tr>
-    <td> Request Check Amount:</td>
-    <td> <input name = requestAmount type=“text”></td>
-  </tr>
-
-  <tr>
-    <td> <button name = “requestCheckSubmit” type=“button”>Request Check Submit</button></td>
-  </tr>
-</table>
+		<tr>
+			<td colspan = "2" align="center">
+				<button name=“requestCheckSubmit” type=“button� onclick="form.submit"��>Request
+					Check Submit</button>
+			</td>
+		</tr>
+	</table>
 
 </form>
 

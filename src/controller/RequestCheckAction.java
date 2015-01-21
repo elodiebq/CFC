@@ -43,14 +43,11 @@ public class RequestCheckAction extends Action {
 		try {
 			//request.setAttribute("customer", CustomerDAO.getUsers());
 			RequestCheckForm form = formBeanFactory.create(request);
-			request.setAttribute("form", form);
+
 
 			// If no params were passed, return with no errors so that the form
 			// will be
 			// presented (we assume for the first time).
-			if (!form.isPresent()) {
-				return "requestcheck.jsp";
-			}
 
 			// Any validation errors?
 			errors.addAll(form.getValidationErrors());
@@ -63,6 +60,8 @@ public class RequestCheckAction extends Action {
 			if (customer == null){
 				return "login.do";
 			}
+			
+			request.setAttribute("cash", (Double.longBitsToDouble(customer.getCash())/1000));
 			
 			Long amount = new Double(Double.parseDouble(form.getAmount())*1000).longValue();
 			Long balance = customer.getCash();
@@ -85,6 +84,8 @@ public class RequestCheckAction extends Action {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("customer", customer);
+			}else{
+				errors.add("Amount should less than cash balance");
 			}
 
 			return "requestcheck.do";
