@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Arrays;
+
 import org.genericdao.ConnectionPool;
 import org.genericdao.DAOException;
 import org.genericdao.GenericDAO;
@@ -40,4 +41,26 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 			if (Transaction.isActive()) Transaction.rollback();
 		}
 	}
+	
+	public void setCash(int customerid, Double newbalance)
+			throws RollbackException {
+		try {
+			Transaction.begin();
+			CustomerBean dbUser = read(customerid);
+
+			if (dbUser == null) {
+				throw new RollbackException("User " + customerid
+						+ " no longer exists");
+			}
+
+			dbUser.setCash(newbalance);
+
+			update(dbUser);
+			Transaction.commit();
+		} finally {
+			if (Transaction.isActive())
+				Transaction.rollback();
+		}
+	}
+	
 }

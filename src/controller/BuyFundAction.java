@@ -14,6 +14,7 @@ import model.TransactionDAO;
 import databeans.CustomerBean;
 import databeans.FundBean;
 import databeans.TransactionBean;
+import formbeans.BuyFundForm;
 import formbeans.LoginForm;
 
 import org.genericdao.RollbackException;
@@ -32,7 +33,7 @@ public class BuyFundAction extends Action {
 	public BuyFundAction(Model model) {
 		customerDAO = model.getCustomerDAO();
 		transactionDAO = model.getTransactionDAO();
-		fundDAO = model.geFundDAO();
+		fundDAO = model.getFundDAO();
 	}
 
 	public String getName() {
@@ -69,12 +70,12 @@ public class BuyFundAction extends Action {
 			request.setAttribute("fundList", fundList);
 
 			String symbol = null;
-			Double amount = null;
+			Long amount = null;
 			FundBean fundbean = null;
 
 			try {
-				symbol = form.getsymbol();
-				amount = form.getAmount();
+				symbol = form.getSymbol();
+				amount = Long.parseLong(form.getAmount());
 
 				fundbean = fundDAO.readBySymbol(symbol);
 				if (fundbean == null) {
@@ -90,12 +91,12 @@ public class BuyFundAction extends Action {
 			}
 			if (amount <= customer.getCash()) {
 				Transaction.begin();
-				double balance = customer.getCash() - amount;
+				Long balance = customer.getCash() - amount;
 
 				TransactionBean buyfund = new TransactionBean();
-				buyfund.setFundId(fundbean.getFundID());
+				buyfund.setFundId(fundbean.getFundId());
 				buyfund.setCustomerId(customer.getCustomerId());
-				buyfund.setAmount(form.getAmount());
+				buyfund.setAmount(amount);
 				buyfund.setType("buy");
 
 				transactionDAO.create(buyfund);
