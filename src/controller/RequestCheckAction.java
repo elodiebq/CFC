@@ -17,10 +17,10 @@ import org.mybeans.form.FormBeanFactory;
 
 import databeans.CustomerBean;
 import databeans.TransactionBean;
-import formbeans.RegisterForm;
+import formbeans.RequestCheckForm;
 
 public class RequestCheckAction extends Action {
-	private FormBeanFactory<RequestCheckForm> requestcheckFactory = FormBeanFactory
+	private FormBeanFactory<RequestCheckForm> formBeanFactory = FormBeanFactory
 			.getInstance(RequestCheckForm.class);
 
 	private TransactionDAO transactionDAO;
@@ -64,15 +64,16 @@ public class RequestCheckAction extends Action {
 				return "login.do";
 			}
 			
-			double balance = customer.getCash();
+			Long amount = new Double(Double.parseDouble(form.getAmount())*1000).longValue();
+			Long balance = customer.getCash();
 			
-			if(form.getAmount() <= balance){
+			if(amount <= balance){
 				Transaction.begin();
-				balance = balance - form.getAmount();
+				balance = balance - amount;
 				
 				TransactionBean requestcheck = new TransactionBean();
 				requestcheck.setCustomerId(customer.getCustomerId());
-				requestcheck.setAmount(form.getAmount());
+				requestcheck.setAmount(amount);
 				requestcheck.setType("requestcheck");
 				
 				transactionDAO.create(requestcheck);

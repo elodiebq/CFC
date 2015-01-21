@@ -8,13 +8,15 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.genericdao.RollbackException;
+
 public abstract class Action {
 	// Returns the name of the action, used to match the request in the hash
 	// table
 	public abstract String getName();
 
 	// Returns the name of the jsp used to render the output.
-	public abstract String perform(HttpServletRequest request);
+	public abstract String perform(HttpServletRequest request) throws RollbackException;
 
 	//
 	// Class methods to manage dispatching to Actions
@@ -33,7 +35,7 @@ public abstract class Action {
 		}
 	}
 
-	public static String perform(String name, HttpServletRequest request) {
+	public static String perform(String name, HttpServletRequest request) throws RollbackException {
 		Action a;
 		synchronized (hash) {
 			a = hash.get(name);

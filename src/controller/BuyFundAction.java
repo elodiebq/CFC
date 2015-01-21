@@ -9,13 +9,11 @@ import javax.servlet.http.HttpSession;
 import model.FundDAO;
 import model.Model;
 import model.CustomerDAO;
-import model.PriceDAO;
 import model.TransactionDAO;
 import databeans.CustomerBean;
 import databeans.FundBean;
 import databeans.TransactionBean;
 import formbeans.BuyFundForm;
-import formbeans.LoginForm;
 
 import org.genericdao.RollbackException;
 import org.genericdao.Transaction;
@@ -40,7 +38,7 @@ public class BuyFundAction extends Action {
 		return "buyfund.do";
 	}
 
-	public String perform(HttpServletRequest request) {
+	public String perform(HttpServletRequest request) throws RollbackException {
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 
