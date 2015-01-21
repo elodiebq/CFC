@@ -41,10 +41,12 @@
 								<li><a href="customer-buyfund.jsp">Buy Funds</a></li>
 								<li><a href="Customer_Sell Fund.jsp">Sell Funds</a></li>
 								<li role="presentation" class="dropdown">
-    								<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+    								<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
     								<ul class="dropdown-menu" role="menu">
-    									<li>123</li>
-    									<li>456</li>
+    									<li><a href="customer_viewaccount.jsp">View Account</a></li>
+    									<li><a href="customer_changepassword.jsp">Change Password</a></li>
+    									<li><a href="customer_viewTransactionHistory.jsp">View Transaction History</a></li>
+    									<li><a href="customer_logout.jsp">Log out</a></li>
     								</ul>
   </li>
 								<li><a href="">Contact Us</a></li>

@@ -1,16 +1,18 @@
+/* Biqiu Li
+   biqiul
+   task7
+   1-20-2015 */
 package controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import model.Model;
 import model.CustomerDAO;
 import databeans.CustomerBean;
 import formbeans.ChangePwdForm;
-import formbeans.LoginForm;
 
 import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;

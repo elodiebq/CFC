@@ -32,7 +32,7 @@ public class Model {
 	}
 	
 	public CustomerDAO    getCustomerDAO()    { return customerDAO;    }
-	public FundDAO        geFundDAO()  		  { return fundDAO;  	   }
+	public FundDAO        getFundDAO()  		  { return fundDAO;  	   }
 	public PositionDAO    getPositionDAO()    { return positionDAO;    }
 	public PriceDAO  	  getPriceDAO()  	  { return priceDAO;       }
 	public TransactionDAO getTransactionDAO() { return transactionDAO; }
