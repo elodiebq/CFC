@@ -47,13 +47,13 @@ public class BuyFundAction extends Action {
 			request.setAttribute("buyfundform", form);
 			
 			if (!form.isPresent()) {
-				return "login.jsp";
+				return "buyfund.jsp";
 			}
 
 			// Any validation errors?
 			errors.addAll(form.getValidationErrors());
 			if (errors.size() != 0) {
-				return "login.jsp";
+				return "buyfund.jsp";
 			}
 
 			// request.setAttribute("customer", customerDAO.getCustomers());
@@ -73,7 +73,7 @@ public class BuyFundAction extends Action {
 
 			try {
 				symbol = form.getSymbol();
-				amount = Long.parseLong(form.getAmount());
+				amount = new Double(Double.parseDouble(form.getAmount())*1000).longValue();
 
 				fundbean = fundDAO.readBySymbol(symbol);
 				if (fundbean == null) {

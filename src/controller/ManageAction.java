@@ -12,22 +12,29 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import model.CustomerDAO;
+import model.FundDAO;
 import model.Model;
-import model.FavoriteDAO;
-import model.MyDAOException;
-import model.UserDAO;
-
-import databeans.FavoriteBean;
+import model.PositionDAO;
+import model.PriceDAO;
+import model.TransactionDAO;
+import databeans.CustomerBean;
 import databeans.UserBean;
 
 public class ManageAction extends Action {
 
-	private FavoriteDAO favoriteDAO;
-	private UserDAO     userDAO;
+	private CustomerDAO customerDAO;
+	private FundDAO     fundDAO;
+	private PositionDAO     positionDAO;
+	private PriceDAO     priceDAO;
+	private TransactionDAO     transactionDAO;
 
 	public ManageAction(Model model) {
-		favoriteDAO = model.getFavoriteDAO();
-    	userDAO     = model.getUserDAO();
+		customerDAO = model.getCustomerDAO();
+    	fundDAO     = model.getFundDAO();
+    	positionDAO     = model.getPositionDAO();
+    	priceDAO     = model.getPriceDAO();
+    	transactionDAO     = model.getTransactionDAO();
 	}
 
 	public String getName() { return "manage.do"; }
