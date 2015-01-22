@@ -9,13 +9,11 @@ import javax.servlet.http.HttpSession;
 import model.FundDAO;
 import model.Model;
 import model.CustomerDAO;
-import model.PriceDAO;
 import model.TransactionDAO;
 import databeans.CustomerBean;
 import databeans.FundBean;
 import databeans.TransactionBean;
 import formbeans.BuyFundForm;
-import formbeans.LoginForm;
 
 import org.genericdao.RollbackException;
 import org.genericdao.Transaction;
@@ -40,22 +38,17 @@ public class BuyFundAction extends Action {
 		return "buyfund.do";
 	}
 
-	public String perform(HttpServletRequest request) {
+	public String perform(HttpServletRequest request) throws RollbackException {
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 
 		try {
 			BuyFundForm form = formBeanFactory.create(request);
-			request.setAttribute("buyfundform", form);
-			
-			if (!form.isPresent()) {
-				return "login.jsp";
-			}
 
 			// Any validation errors?
 			errors.addAll(form.getValidationErrors());
 			if (errors.size() != 0) {
-				return "login.jsp";
+				return "buyfund.jsp";
 			}
 
 			// request.setAttribute("customer", customerDAO.getCustomers());
@@ -75,13 +68,13 @@ public class BuyFundAction extends Action {
 
 			try {
 				symbol = form.getSymbol();
-				amount = Long.parseLong(form.getAmount());
+				amount = new Double(Double.parseDouble(form.getAmount())*1000).longValue();
 
 				fundbean = fundDAO.readBySymbol(symbol);
 				if (fundbean == null) {
 					fundbean = fundDAO.readByName(symbol);
 					if (fundbean == null) {
-						// return err.add();
+						errors.add("No fund found! Please check input.");
 					}
 				}
 
@@ -89,6 +82,7 @@ public class BuyFundAction extends Action {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			if (amount <= customer.getCash()) {
 				Transaction.begin();
 				Long balance = customer.getCash() - amount;
@@ -108,7 +102,7 @@ public class BuyFundAction extends Action {
 				HttpSession session = request.getSession();
 				session.setAttribute("customer", customer);
 			} else {
-				// err.add("not enough money");
+				errors.add("Amount must less than cash balance");
 			}
 
 			return "buyfund.do";

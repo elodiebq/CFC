@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.genericdao.RollbackException;
+
 import databeans.CustomerBean;
 import model.Model;
 
@@ -22,6 +24,13 @@ public class Controller extends HttpServlet {
 
 		Action.add(new LoginAction(model));
 		Action.add(new LogoutAction(model));
+		Action.add(new ManageAction(model));
+		Action.add(new BuyFundAction(model));
+		Action.add(new CustomerChangePwdAction(model));
+		Action.add(new RequestCheckAction(model));
+		Action.add(new ResearchFundsAction(model));
+		Action.add(new ViewAccountAction(model));
+		Action.add(new ViewHistoryAction(model));
 
 	}
 
@@ -32,7 +41,13 @@ public class Controller extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String nextPage = performTheAction(request);
+		String nextPage = null;
+		try {
+			nextPage = performTheAction(request);
+		} catch (RollbackException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		sendToNextPage(nextPage, request, response);
 	}
 
@@ -44,7 +59,7 @@ public class Controller extends HttpServlet {
 	 * 
 	 * @return the next page (the view)
 	 */
-	private String performTheAction(HttpServletRequest request) {
+	private String performTheAction(HttpServletRequest request) throws RollbackException {
 		HttpSession session = request.getSession(true);
 		String servletPath = request.getServletPath();
 		CustomerBean customer = (CustomerBean) session.getAttribute("customer");

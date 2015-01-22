@@ -12,30 +12,30 @@ import java.util.List;
 
 import org.mybeans.form.FormBean;
 
-public class ChangePwdForm extends FormBean {
+public class RequestCheckForm extends FormBean {
 	private String amount;
-	
-	public String getAmount() { return amount; }
-	
-	public void setAmount(String s) { amount = s.trim(); }
+
+	public String getAmount() {
+		return amount;
+	}
+
+	public void setAmount(String s) {
+		amount = s.trim();
+	}
 
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 
-		if (newPassword == null || newPassword.length() == 0) {
-			errors.add("New Password is required");
+		if (amount.trim() == null || amount.trim().length() == 0) {
+			errors.add("Please enter an amount");
 		}
-		
-		if (confirmPassword == null || confirmPassword.length() == 0) {
-			errors.add("Confirm Pwd is required");
-		}
-		
-		if (errors.size() > 0) {
-			return errors;
-		}
-		
-		if (!newPassword.equals(confirmPassword)) {
-			errors.add("Passwords do not match");
+
+		if (amount.trim().length() != 0) {
+			try {
+				double amountcheck = Double.parseDouble(amount.trim());
+			} catch (Exception e) {
+				errors.add("Amount must be a number");
+			}
 		}
 
 		return errors;

@@ -31,6 +31,6 @@
     <url-pattern>   /manage.do                    </url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>   manage.do   </welcome-file>
+    <welcome-file>   index.jsp   </welcome-file>
   </welcome-file-list>
 </web-app>

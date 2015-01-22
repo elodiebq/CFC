@@ -22,4 +22,23 @@ public class BuyFundForm extends FormBean {
 	public void setSymbol(String s) { symbol = s.trim(); }
 	public void setAmount(String s)     { amount     = s.trim(); }
 
+	public List<String> getValidationErrors() {
+		List<String> errors = new ArrayList<String>();
+
+		if (symbol == null || symbol.length() == 0)
+			errors.add("Symbol is required");
+		if (amount == null || amount.length() == 0)
+			errors.add("Amount is required");
+
+		if (amount.trim().length() != 0) {
+			try {
+				double amountcheck = Double.parseDouble(amount.trim());
+			} catch (Exception e) {
+				errors.add("Amount should be a number");
+			}
+		}
+		return errors;
+	}
+	
 }
+

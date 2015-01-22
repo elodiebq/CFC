@@ -17,10 +17,10 @@ import org.mybeans.form.FormBeanFactory;
 
 import databeans.CustomerBean;
 import databeans.TransactionBean;
-import formbeans.RegisterForm;
+import formbeans.RequestCheckForm;
 
 public class RequestCheckAction extends Action {
-	private FormBeanFactory<RequestCheckForm> requestcheckFactory = FormBeanFactory
+	private FormBeanFactory<RequestCheckForm> formBeanFactory = FormBeanFactory
 			.getInstance(RequestCheckForm.class);
 
 	private TransactionDAO transactionDAO;
@@ -43,14 +43,11 @@ public class RequestCheckAction extends Action {
 		try {
 			//request.setAttribute("customer", CustomerDAO.getUsers());
 			RequestCheckForm form = formBeanFactory.create(request);
-			request.setAttribute("form", form);
+
 
 			// If no params were passed, return with no errors so that the form
 			// will be
 			// presented (we assume for the first time).
-			if (!form.isPresent()) {
-				return "requestcheck.jsp";
-			}
 
 			// Any validation errors?
 			errors.addAll(form.getValidationErrors());
@@ -64,15 +61,18 @@ public class RequestCheckAction extends Action {
 				return "login.do";
 			}
 			
-			double balance = customer.getCash();
+			request.setAttribute("cash", (Double.longBitsToDouble(customer.getCash())/1000));
 			
-			if(form.getAmount() <= balance){
+			Long amount = new Double(Double.parseDouble(form.getAmount())*1000).longValue();
+			Long balance = customer.getCash();
+			
+			if(amount <= balance){
 				Transaction.begin();
-				balance = balance - form.getAmount();
+				balance = balance - amount;
 				
 				TransactionBean requestcheck = new TransactionBean();
 				requestcheck.setCustomerId(customer.getCustomerId());
-				requestcheck.setAmount(form.getAmount());
+				requestcheck.setAmount(amount);
 				requestcheck.setType("requestcheck");
 				
 				transactionDAO.create(requestcheck);
@@ -84,6 +84,8 @@ public class RequestCheckAction extends Action {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("customer", customer);
+			}else{
+				errors.add("Amount should less than cash balance");
 			}
 
 			return "requestcheck.do";

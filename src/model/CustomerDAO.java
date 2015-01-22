@@ -42,7 +42,7 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 		}
 	}
 	
-	public void setCash(int customerid, Double newbalance)
+	public void setCash(int customerid, Long newbalance)
 			throws RollbackException {
 		try {
 			Transaction.begin();
