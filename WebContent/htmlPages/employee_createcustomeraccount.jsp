@@ -48,6 +48,7 @@
 			<td>Cash Balance:</td>
 			<td><input type="text" name="comment" value="0" /></td>
 		</tr>
+		<input type="hidden" name="action" value="Register"/>
 		<tr>
 			<td colspan="2" align="center"><input type="submit"
 				name="button" value="Create Customer" /></td>

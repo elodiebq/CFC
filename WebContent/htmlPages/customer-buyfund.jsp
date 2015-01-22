@@ -1,6 +1,8 @@
 <jsp:include page="customer-toptemplate.jsp" />
-	<form method="POST" action="change-pwd.do">
-			<a href="customer_Fundlist.jsp" target="_blank">See all Funds</a>	
+	<form method="POST" action="buyfund.do">
+	 <c:forEach var="error" items="${errors}">
+        <h3 style="color: red">${error}</h3>
+    </c:forEach>
 		<div class="container">
 	<div class="row">
 		<div class="col-md-2"></div>

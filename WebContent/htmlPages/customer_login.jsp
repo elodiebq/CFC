@@ -40,7 +40,9 @@
                             <input name="email" type="email" class="form-control" placeholder="Email address" required="" autofocus="">
                             <input name= "password" type="password" class="form-control" placeholder="Password" required="">
                             <input name= "action" type="hidden" value="Login">
-                            <p id="error_info">${errors}</p>
+                            <c:forEach var="error" items="${errors}">
+                                <p id="error">${error}</p>
+                            </c:forEach>
                             <div class="checkbox">
                                 <label> <input type="checkbox" value="remember-me">
                                     Remember me

@@ -51,6 +51,9 @@ public class ResearchFundsAction extends Action {
                 return "customer_searchfund.jsp";
             }
 
+
+            
+
             // Any validation errors?
             errors.addAll(form.getValidationErrors());
             if (errors.size() != 0) {
@@ -59,12 +62,17 @@ public class ResearchFundsAction extends Action {
 
             FundBean[] funds = null;
             try {
+                if(form.getfundKeyWord().equals("*")){
+                    funds = fundDAO.match();
+                }
+                else{
                 funds = fundDAO
                         .match(MatchArg.or(
                                 MatchArg.containsIgnoreCase("fundName",
                                         form.getfundKeyWord()),
                                 MatchArg.containsIgnoreCase("symbol",
                                         form.getfundKeyWord())));
+                    }
             } catch (RollbackException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -73,7 +81,7 @@ public class ResearchFundsAction extends Action {
             
 
             request.setAttribute("searchedfunds",funds);
-            return "search_result.jsp";
+            return "customer_searchfund.jsp";
         } catch (FormBeanException e) {
             errors.add(e.getMessage());
             return "error.jsp";

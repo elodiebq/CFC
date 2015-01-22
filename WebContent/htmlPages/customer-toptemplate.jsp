@@ -36,7 +36,7 @@
 						<h3 class="text-muted">Carnegie Financial Service</h3>
 						<nav>
 							<ul class="nav nav-justified">
-								<li class="active"><a href="customer_searchfund.jsp">Research
+								<li class="active"><a href="research_funds.do?fundKeyWord=*">Research
 										Funds</a></li>
 								<li><a href="customer-buyfund.jsp">Buy Funds</a></li>
 								<li><a href="Customer_Sell Fund.jsp">Sell Funds</a></li>
@@ -46,7 +46,7 @@
     									<li><a href="customer_viewaccount.jsp">View Account</a></li>
     									<li><a href="customer_changepassword.jsp">Change Password</a></li>
     									<li><a href="customer_viewTransactionHistory.jsp">View Transaction History</a></li>
-    									<li><a href="customer_logout.jsp">Log out</a></li>
+    									<li><a href="logout.do">Log out</a></li>
     								</ul>
   </li>
 								<li><a href="">Contact Us</a></li>

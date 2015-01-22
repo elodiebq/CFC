@@ -5,13 +5,13 @@
 <br>
 
 <p>
-<form method="post" action="searchfund.do">
+<form method="GET" action="sresearch_funds.do">
 	<table>
 		<tr>
 		<td></td>
 			<td style="font-size: medium">Find a Fund:</td>
-			<td><input type="text" name="searchfund"
-				class="input-block-holder" placeholder="Fund name/ticker" "/></td>
+			<td><input type="text" name="fundKeyWord"
+				class="input-block-holder" placeholder="Fund name/ticker"/></td>
 			<td colspan="2" align="right"><input type="submit"
 				class="button-secondary form_item-medium right" name="button"
 				value="Search" /> <a href="customer_Fundlist.jsp">See all Funds</a>
@@ -20,7 +20,18 @@
 
 		</tr>
 	</table>
+
 </form>
+
+<table>
+	 <c:forEach var="fund" items="${funds}">
+        <tr>
+        	<td>${fund.fundId}</td>
+        	<td>${fund.fundName}</td>
+        	<td>${fund.symbol}</td>
+        </tr>
+    </c:forEach>
+</table>
 </p>
 </td>
 </tr>
