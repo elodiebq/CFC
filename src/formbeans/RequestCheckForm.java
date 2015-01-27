@@ -26,11 +26,11 @@ public class RequestCheckForm extends FormBean {
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 
-		if (amount.trim() == null || amount.trim().length() == 0) {
+		if (amount == null || amount.length() == 0) {
 			errors.add("Please enter an amount");
 		}
 
-		if (amount.trim().length() != 0) {
+		if (amount.length() != 0) {
 			try {
 				double amountcheck = Double.parseDouble(amount.trim());
 			} catch (Exception e) {

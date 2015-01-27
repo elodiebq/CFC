@@ -64,17 +64,17 @@ public class LoginAction extends Action {
 				return "customer_login.jsp";
 			}
 
-			// Check the password
-			if (!(customer.getPassword().equals(form.getPassword()))) {
+			//check password
+			if (!customer.checkPassword(form.getPassword())) {
 				errors.add("Incorrect password");
 				return "customer_login.jsp";
 			}
 
 			// Attach (this copy of) the user bean to the session
 			HttpSession session = request.getSession();
-			session.setAttribute("user", customer);
+			session.setAttribute("customer", customer);
 
-			return "manage.do";
+			return "research_funds.do";
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";

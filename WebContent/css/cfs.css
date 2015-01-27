@@ -1,0 +1,43 @@
+body {
+	background: url("../img/1.png");
+	background-repeat: repeat; 
+	background-attachment: fixed;
+	color: white;
+}
+
+*.place_center, h1, h2, h3, h4, h5, p {
+	text-align: center;
+}
+
+button {
+	border-radius: 0px;
+}
+div#body{
+	margin-top: 100px;
+}
+div#fund_list{
+	height: 450px;
+	overflow-y: scroll;
+}
+div.button_box>div{
+	margin: 0px;
+	padding: 0px;
+}
+
+div.form_area{
+	margin-left: 80px;
+	margin-right: 80px;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	color: #34495e;
+	border-radius: 0px;
+	box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+}
+
+table {
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+canvas#myChart{
+	position: fixed;
+}

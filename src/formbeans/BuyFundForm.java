@@ -30,7 +30,7 @@ public class BuyFundForm extends FormBean {
 		if (amount == null || amount.length() == 0)
 			errors.add("Amount is required");
 
-		if (amount.trim().length() != 0) {
+		if (amount.length() != 0) {
 			try {
 				double amountcheck = Double.parseDouble(amount.trim());
 			} catch (Exception e) {

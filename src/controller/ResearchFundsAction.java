@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import model.FundDAO;
 import model.Model;
-import model.CustomerDAO;
-import databeans.CustomerBean;
+import model.PriceDAO;
 import databeans.FundBean;
-import formbeans.ChangePwdForm;
+import databeans.PriceBean;
 import formbeans.SearchFundsForm;
 
 import org.genericdao.MatchArg;
@@ -27,9 +26,11 @@ public class ResearchFundsAction extends Action {
             .getInstance(SearchFundsForm.class);
 
     private FundDAO fundDAO;
+    private PriceDAO priceDAO;
 
     public ResearchFundsAction(Model model) {
         fundDAO = model.getFundDAO();
+        priceDAO = model.getPriceDAO();
     }
 
     public String getName() {
@@ -42,45 +43,67 @@ public class ResearchFundsAction extends Action {
 
         try {
             SearchFundsForm form = formBeanFactory.create(request);
-            request.setAttribute("form", form);
 
+            int fundid = 0;
+            FundBean[] funds = null;
+            FundBean fund0 = null;
+            PriceBean[] prices = null;
             // If no params were passed, return with no errors so that the form
             // will be
             // presented (we assume for the first time).
             if (!form.isPresent()) {
-                return "customer_searchfund.jsp";
-            }
-
-
-            
-
-            // Any validation errors?
-            errors.addAll(form.getValidationErrors());
-            if (errors.size() != 0) {
-                return "customer_searchfund.jsp";
-            }
-
-            FundBean[] funds = null;
-            try {
-                if(form.getfundKeyWord().equals("*")){
+                if (request.getParameter("fundId") == null)
+                    fundid = 1;
+                else
+                    fundid = Integer.parseInt(request.getParameter("fundId"));
+                try {
                     funds = fundDAO.match();
+                } catch (RollbackException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
-                else{
-                funds = fundDAO
-                        .match(MatchArg.or(
-                                MatchArg.containsIgnoreCase("fundName",
-                                        form.getfundKeyWord()),
-                                MatchArg.containsIgnoreCase("symbol",
-                                        form.getfundKeyWord())));
+                try {
+                    fund0 = fundDAO.read(fundid);
+                    prices = priceDAO.match(MatchArg.equals("fundId", fund0.getFundId()));
+
+                } catch (NumberFormatException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (RollbackException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            } else {
+                // Any validation errors?
+                errors.addAll(form.getValidationErrors());
+                if (errors.size() != 0) {
+                    return "customer_searchfund.jsp";
+                }
+
+                try {
+                    funds = fundDAO.match(MatchArg.or(
+                            MatchArg.containsIgnoreCase("fundName",
+                                    form.getfundKeyWord()),
+                            MatchArg.containsIgnoreCase("symbol",
+                                    form.getfundKeyWord())));
+                } catch (RollbackException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                if (funds.length > 0) {
+                    try {
+                        fund0 = fundDAO.read(funds[0].getFundId());
+                        prices = priceDAO.match(MatchArg.equals("fundId", fund0.getFundId()));
+                    } catch (RollbackException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
                     }
-            } catch (RollbackException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                }
             }
 
-            
-
-            request.setAttribute("searchedfunds",funds);
+            request.setAttribute("funds", funds);
+            request.setAttribute("fund0", fund0);
+            request.setAttribute("prices", prices);
             return "customer_searchfund.jsp";
         } catch (FormBeanException e) {
             errors.add(e.getMessage());

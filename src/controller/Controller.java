@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.genericdao.RollbackException;
 
 import databeans.CustomerBean;
+import model.CustomerDAO;
 import model.Model;
 
 public class Controller extends HttpServlet {
@@ -21,16 +22,24 @@ public class Controller extends HttpServlet {
 
 	public void init() throws ServletException {
 		Model model = new Model(getServletConfig());
-
+		//create sample customer
+//		try {
+//			createsample(model);
+//		} catch (RollbackException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 		Action.add(new LoginAction(model));
 		Action.add(new LogoutAction(model));
-		Action.add(new ManageAction(model));
+		//Action.add(new ManageAction(model));
 		Action.add(new BuyFundAction(model));
 		Action.add(new CustomerChangePwdAction(model));
 		Action.add(new RequestCheckAction(model));
 		Action.add(new ResearchFundsAction(model));
 		Action.add(new ViewAccountAction(model));
 		Action.add(new ViewHistoryAction(model));
+		Action.add(new SellFundAction(model));
 
 	}
 
@@ -126,4 +135,32 @@ public class Controller extends HttpServlet {
 		int slash = path.lastIndexOf('/');
 		return path.substring(slash + 1);
 	}
+	
+	private void createsample(Model model) throws RollbackException {
+		CustomerDAO customerDAO;
+
+		customerDAO = model.getCustomerDAO();
+		for (int i = 1; i < 2; i++) {
+			
+			CustomerBean userbean = new CustomerBean();
+			userbean.setEmail("user" + i+"@gmail.com");
+			userbean.setFirstName("Firstname" + i + "");
+			userbean.setLastName("Lastname" + i + "");
+			userbean.setPassword("user" + i);
+			userbean.setCash(50000);
+			userbean.setAddrLine1("5939 fifth");
+			userbean.setAddrLine2("Ave");
+			userbean.setCity("Pitt");
+			userbean.setZip("15232");
+
+			CustomerBean userck = customerDAO.read("sample" + i);
+
+			if (userck != null) {
+			} else {
+				customerDAO.create(userbean);
+			}
+		}
+
+	}
+	
 }

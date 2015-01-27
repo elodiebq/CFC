@@ -18,7 +18,7 @@ public class SearchFundsForm extends FormBean{
         List<String> errors = new ArrayList<String>();
 
         if (fundKeyWord == null || fundKeyWord.length() == 0)
-            errors.add("Fund name or ticker is required");
+            errors.add("Fund name or ticker or id is required");
 
         if (errors.size() > 0)
             return errors;

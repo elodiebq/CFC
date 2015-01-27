@@ -18,13 +18,13 @@ public class TransactionDAO extends GenericDAO<TransactionBean> {
 	
 	public TransactionBean[] getTransactions() throws RollbackException {
 		TransactionBean[] transactions = match();
-		Arrays.sort(transactions); 
+		//Arrays.sort(transactions); 
 		return transactions;
 	}
 	
 	public TransactionBean[] getTransactionsByCustomer(int customerId) throws RollbackException {
 		TransactionBean[] transactions = match(MatchArg.equals("customerId", customerId));
-		Arrays.sort(transactions); 
+		//Arrays.sort(transactions); 
 		return transactions;
 	}
 	

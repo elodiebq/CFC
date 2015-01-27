@@ -11,7 +11,6 @@ import model.Model;
 import model.TransactionDAO;
 
 import org.genericdao.RollbackException;
-import org.genericdao.Transaction;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
@@ -29,7 +28,7 @@ public class RequestCheckAction extends Action {
 	public RequestCheckAction(Model model) {
 		transactionDAO = model.getTransactionDAO();
 		customerDAO = model.getCustomerDAO();
-		
+
 	}
 
 	public String getName() {
@@ -41,61 +40,80 @@ public class RequestCheckAction extends Action {
 		request.setAttribute("errors", errors);
 
 		try {
-			//request.setAttribute("customer", CustomerDAO.getUsers());
+			// request.setAttribute("customer", CustomerDAO.getUsers());
 			RequestCheckForm form = formBeanFactory.create(request);
-
 
 			// If no params were passed, return with no errors so that the form
 			// will be
 			// presented (we assume for the first time).
 
 			// Any validation errors?
-			errors.addAll(form.getValidationErrors());
-			if (errors.size() != 0) {
-				return "register.jsp";
-			}
-			
-			CustomerBean customer = (CustomerBean) request.getSession(false).getAttribute(
-					"customer");
-			if (customer == null){
+
+			CustomerBean customer = (CustomerBean) request.getSession(false)
+					.getAttribute("customer");
+			if (customer == null) {
 				return "login.do";
 			}
+			CustomerBean customerbean = customerDAO.read(customer.getEmail());
 			
-			request.setAttribute("cash", (Double.longBitsToDouble(customer.getCash())/1000));
-			
-			Long amount = new Double(Double.parseDouble(form.getAmount())*1000).longValue();
+			Long cash = customerbean.getCash();
+			Double pagebalance = cash.doubleValue();
+			request.setAttribute("cash", String.valueOf(pagebalance/100));
+			if (!form.isPresent()) {
+				return "customer_requestCheck.jsp";
+			}
+			System.out.println("2");
+			errors.addAll(form.getValidationErrors());
+			if (errors.size() != 0) {
+				return "customer_requestCheck.jsp";
+			}
+			System.out.println("3");
+
+			Long amount = new Double(
+					Double.parseDouble(form.getAmount()) * 100).longValue();
 			Long balance = customer.getCash();
-			
-			if(amount <= balance){
-				Transaction.begin();
+
+			System.out.println("Amount" + form.getAmount());
+			System.out.println("Balance" + balance);
+
+			if (amount <= balance) {
+				// Transaction.begin();
 				balance = balance - amount;
-				
+
 				TransactionBean requestcheck = new TransactionBean();
 				requestcheck.setCustomerId(customer.getCustomerId());
 				requestcheck.setAmount(amount);
 				requestcheck.setType("requestcheck");
-				
+
 				transactionDAO.create(requestcheck);
-				
+
 				customer.setCash(balance);
-				
+
 				customerDAO.setCash(customer.getCustomerId(), balance);
-				Transaction.commit();
-				
+				// Transaction.commit();
+
 				HttpSession session = request.getSession();
 				session.setAttribute("customer", customer);
-			}else{
+				request.setAttribute("message", "You have made $" + amount/100
+	                    + " check.");
+			} else {
 				errors.add("Amount should less than cash balance");
+				return "customer_requestCheck.jsp";
 			}
-
-			return "requestcheck.do";
+            HttpSession session = request.getSession();
+            session.setAttribute("customer", customer);
+            request.setAttribute("msg", "You have request $" + amount / 100
+                    + " for a check.");
+            cash = customer.getCash();
+            pagebalance = cash.doubleValue();
+            request.setAttribute("cash", String.valueOf(pagebalance / 100));
+			return "customer_requestCheck.jsp";
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
-			return "requestcheck.jsp";
+			return "customer_requestCheck.jsp";
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
-			return "requestcheck.jsp";
+			return "customer_requestCheck.jsp";
 		}
 	}
 }
-

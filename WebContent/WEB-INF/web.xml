@@ -28,9 +28,9 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>controller-servlet</servlet-name>
-    <url-pattern>   /manage.do                    </url-pattern>
+    <url-pattern>   /login.do                    </url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>   index.jsp   </welcome-file>
+    <welcome-file>   login.do   </welcome-file>
   </welcome-file-list>
 </web-app>

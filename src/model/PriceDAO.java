@@ -40,9 +40,28 @@ public class PriceDAO extends GenericDAO<PriceBean>{
 	
 	public long getLastDayByFund(int fundId) throws RollbackException {
 		Date lastDay = getLastDay();
+		if (lastDay == null) return 0;
+
 		PriceBean lastDayPrice = read(fundId, lastDay);
+		if (lastDayPrice == null) return 0;
+//		System.out.println("fundId" + fundId);
+//		System.out.println("lastDayPrice" + lastDayPrice);
+		
 		return lastDayPrice.getPrice();
 	} 
 	
-
+	public long getFundPrice(int fundId, Date date) throws RollbackException {
+		if (fundId == 0) return 0;
+		Date lastDay = getLastDay();
+		
+		if (date == null)
+			return 0;
+		if (date.after(lastDay))
+			return 0;
+		
+		else {
+			PriceBean lastDayPrice = read(fundId, date);
+			return lastDayPrice.getPrice();
+		}
+	}
 }

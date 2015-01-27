@@ -23,7 +23,7 @@ public class Model {
 			customerDAO     = new CustomerDAO("customer", pool);
 			fundDAO 	    = new FundDAO("fund", pool);
 			positionDAO     = new PositionDAO("position", pool);
-			priceDAO        = new PriceDAO("priceDAO", pool);
+			priceDAO        = new PriceDAO("price", pool);
 			transactionDAO  = new TransactionDAO("transaction", pool);
 			
 		} catch (DAOException e) {

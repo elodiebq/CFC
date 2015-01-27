@@ -1,29 +1,29 @@
 package databeans;
 import org.genericdao.PrimaryKey;
-
+import java.sql.Date;
 @PrimaryKey("transactionId")
 public class TransactionBean {
 		private int transactionId;
 		private int fundId;
 		private int customerId;
-		private int share;
+		private long share;
 		private long amout;
-		private int date;
+		private Date date;
 		private String type;
 
 		public int     getTransactionId() { return transactionId; }
 		public int     getFundId()   	  { return fundId;        }
 		public int     getCustomerId()    { return customerId;    }
-		public int     getShare()   	  { return share;		  }
+		public long     getShare()   	  { return share;		  }
 		public long    getAmount()        { return amout;		  }
-		public int     getDate()          { return date;          }
+		public Date     getDate()          { return date;          }
 		public String  getType()          { return type;          }
 
-		public void setTransacitonId(int i)   { transactionId = i; }
+		public void setTransactionId(int i)   { transactionId = i; }
 		public void setFundId(int i)	      {	fundId        = i; }
 		public void setCustomerId(int i) 	  {	customerId    = i; }
-		public void setShare(int i) 	      {	share         = i; }
+		public void setShare(long i) 	      {	share         = i; }
 		public void setAmount(long l)		  { amout         = l; }
-		public void setDate(int i) 		  	  {	date          = i; }
+		public void setDate(Date i) 		  {	date          = i; }
 	    public void setType(String s) 	      {	type          = s; }
 }

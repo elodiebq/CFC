@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.genericdao.ConnectionPool;
 import org.genericdao.DAOException;
 import org.genericdao.GenericDAO;
+import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 import org.genericdao.Transaction;
 
@@ -24,19 +25,9 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 		return customers;
 	}
 	
-	public void setPassword(String email, String password) throws RollbackException {
+	public void setPassword(CustomerBean customer) throws RollbackException {
         try {
-        	Transaction.begin();
-			CustomerBean dbCustomer = read(email);
-			
-			if (dbCustomer == null) {
-				throw new RollbackException("Email Address "+ email +" no longer exists");
-			}
-			
-			dbCustomer.setPassword(password);
-			
-			update(dbCustomer);
-			Transaction.commit();
+			update(customer);
 		} finally {
 			if (Transaction.isActive()) Transaction.rollback();
 		}
@@ -57,6 +48,25 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 
 			update(dbUser);
 			Transaction.commit();
+		} finally {
+			if (Transaction.isActive())
+				Transaction.rollback();
+		}
+	}
+	public CustomerBean read(String username) throws RollbackException {
+		try {
+			Transaction.begin();
+			CustomerBean[] dbUser = match(MatchArg.equals("email", username));
+			CustomerBean user = null;
+			if (dbUser.length == 0) {
+				// throw new
+				// RollbackException("User "+email+" no longer exists");
+			} else {
+				user = dbUser[0];
+			}
+
+			Transaction.commit();
+			return user;
 		} finally {
 			if (Transaction.isActive())
 				Transaction.rollback();

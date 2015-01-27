@@ -1,6 +1,7 @@
 package formbeans;
 
-public class PositionRecordBean {
+
+public class PositionRecordBean{
 	
 	private String fundName;
 	private String symbol;
@@ -16,7 +17,7 @@ public class PositionRecordBean {
 	public void setOriginalPrice(String s) 	{ originalPrice = s; }
 	
 	public String getFundName() 	 { return fundName;      }
-	public String setSymbol()		 { return symbol;        }
+	public String getSymbol()		 { return symbol;        }
 	public String getShare() 		 { return share;         }
 	public String getLastPrice()     { return lastPrice;     }
 	public String getOriginalPrice() { return originalPrice; }
